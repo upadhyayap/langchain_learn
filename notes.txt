@@ -1,0 +1,24 @@
+promptTemplate
+chat object
+create a chain
+There are inbuilt output parsers in langchain.
+Agents - LangChain agents are autonomous AI systems that can perform complex tasks by breaking them down into smaller steps. They use a combination of tools (like search, calculator, or custom functions) and an LLM to decide which actions to take. Agents can:
+1. Plan and execute multi-step tasks
+2. Use tools to interact with external systems
+3. Make decisions based on context and available tools
+4. Adapt their approach based on intermediate results
+you can chain agents and hook them up with the LLM to perform a complex task.
+
+
+Tools - LangChain tools are functions that agents can use to interact with external systems or perform specific tasks. They can be:
+1. Built-in tools (like search, calculator, or web browser)
+2. Custom tools created by wrapping your own functions
+3. Tools that integrate with external APIs and services
+Tools are essential components that enable agents to perform real-world actions beyond just generating text.
+
+outputparsers - LangChain output parsers are utilities that help structure and format the raw text output from LLMs into more usable formats. They can:
+1. Convert text into structured data types (like JSON, lists, or custom objects)
+2. Extract specific information from LLM responses
+3. Format outputs according to predefined schemas
+4. Handle parsing errors and provide fallback options
+Common parsers include StrOutputParser, JSONOutputParser, and PydanticOutputParser. They are essential for making LLM outputs more predictable and easier to work with in applications.
