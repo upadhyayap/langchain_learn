@@ -17,4 +17,8 @@ dependencies = [
     "flask>=3.1.1",
     "langsmith>=0.3.42",
     "blank>=0.1.0",
+    "langchain-pinecone>=0.2.6",
+    "pinecone>=6.0.2",
+    "pypdf>=5.5.0",
+    "faiss-cpu>=1.11.0",
 ]

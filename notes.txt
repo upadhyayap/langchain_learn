@@ -22,3 +22,47 @@ outputparsers - LangChain output parsers are utilities that help structure and f
 3. Format outputs according to predefined schemas
 4. Handle parsing errors and provide fallback options
 Common parsers include StrOutputParser, JSONOutputParser, and PydanticOutputParser. They are essential for making LLM outputs more predictable and easier to work with in applications.
+
+Prompt
+A prompt can be broken down into 4 components
+- Instructions
+    - Which tasks needs to be performed
+    - sets the stage for the model response
+- context
+    - Additional information to fine tune the instructions
+- Input data
+    - data that the model needs to process
+- output Indicators
+
+Zero shot prompting -  is a technique where we provide the model with a task without any examples or demonstrations. The model relies solely on its pre-trained knowledge to understand and complete the task. For example, "Translate this English text to French: 'Hello, how are you?'" or "Summarize the following article in three bullet points: [article text]". This approach is simple but may not always yield the most accurate results compared to few-shot or many-shot prompting.
+
+Few shot prompting - is a technique where we provide the model with a few examples of the desired input-output pairs before asking it to perform the task. These examples help the model understand the expected format and style of the response. For instance, if we want the model to classify sentiment, we might show it a few examples like "I love this movie" → positive, "This was terrible" → negative, before asking it to classify new text. This approach typically yields better results than zero-shot prompting as it gives the model concrete patterns to follow.
+
+chain of thought prompting - is a technique where we ask the model to break down its reasoning process step by step before arriving at the final answer. This helps the model think through complex problems more carefully and often leads to more accurate results. For example, instead of directly asking "What is 25% of 80?", we might prompt "Let's solve this step by step: First, what is 25% as a decimal? Then, how do we multiply that by 80? Show your work." This approach is particularly useful for mathematical problems, logical reasoning, and complex decision-making tasks.
+
+ReAct Prompting (Reason + Act) is a prompting technique that combines reasoning and action-taking in a step-by-step format. It helps models break down complex tasks by alternating between thinking (reasoning) and doing (acting). For example:
+
+Question: "What is the weather in New York and should I bring an umbrella?"
+
+ReAct Response:
+Thought: I need to check the current weather in New York to determine if an umbrella is needed.
+Action: Search for "current weather New York"
+Observation: Current temperature is 72°F with 60% chance of rain
+Thought: Since there's a high chance of rain, an umbrella would be useful
+Action: Recommend bringing an umbrella
+Final Answer: Yes, you should bring an umbrella to New York today as there's a 60% chance of rain despite the mild temperature of 72°F.
+
+This structured approach helps models make more informed decisions by explicitly separating the reasoning process from actions.
+
+mcp server - A Model Control Protocol (MCP) server is a specialized server that manages and coordinates interactions between language models and various tools or services. It acts as a middleware layer that:
+1. Handles model requests and responses
+2. Manages tool execution and integration
+3. Provides a standardized interface for model-tool communication
+4. Enables secure and controlled access to external systems
+MCP servers are crucial for building robust AI applications that require reliable model-tool interactions.
+
+use FastMcp to build the mcp server
+
+read about what is the difference between stdio and sse in mcp server.
+
+Langchain has multiservermcp client that can connect to multiple mcp servers at the same time.
